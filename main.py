@@ -1,3 +1,4 @@
+from gameControl import Game
 """
 Программа использует match-case, что работает только с python 3.10+
 Базовые требования для запуска - python 3.10+
@@ -18,12 +19,16 @@ while True:
     match choice:
         case '1':
             # game start с компьютером
-            print("Запуск игры с компьютером...")
-
+            print("Запуск игры с компьютером...\n")
+            game = Game()
+            break
         case '2':
             # game start с другом
             print("Запуск игры с другом...")
-
+            game = Game()
+            while True:
+                game.pullout_number()
+            break
         case '3':
             print("Выход из игры...")
             break
