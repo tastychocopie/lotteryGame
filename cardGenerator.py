@@ -1,18 +1,34 @@
 import random
 
 class Card:
-
-    # отбор уникальных случайных чисел
     def __init__(self):
-        numbers = random.sample(range(1, 90),15)  # 15 чисел тк 3 строки из 9 клеток, где в каждой строке 5 заполненных - 15 чисел
-        # создаем 3 списка из 9 пустых клеток
+        # 15 уникальных чисел
+        numbers = random.sample(range(1, 91), 15)
+
+        # Создаем 3 строки с 9 клетками каждая
+        self.somelist = []
+        numbers_index = 0
+
         for row in range(3):
-            """
-            somelist = []
-somelist.append(list(range(1, 10)))
-somelist.append(list(range(1,10)))
-somelist.append(list(range(1,10)))
-print(somelist)
-for row in somelist:
-    print(row)
-            """
+            # Создаем строку из 9 пустых клеток
+            row_cells = ['  '] * 9
+
+            # Выбираем 5 случайных позиций для заполнения
+            filled_positions = random.sample(range(9), 5)
+            filled_positions.sort()
+
+            # Заполняем выбранные позиции числами
+            for pos in filled_positions:
+                row_cells[pos] = str(numbers[numbers_index]).rjust(2)
+                numbers_index += 1
+
+            # Добавляем строку в карточку
+            self.somelist.append(row_cells)
+
+    def __str__(self):
+        # Форматируем карточку для вывода
+        result = '-' * 26 + '\n'
+        for row in self.somelist:
+            result += ' '.join(row) + '\n'
+        result += '-' * 26
+        return result
