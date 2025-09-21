@@ -4,6 +4,7 @@ class Card:
     def __init__(self):
         # 15 уникальных чисел
         numbers = random.sample(range(1, 91), 15)
+        numbers.sort()  # Сортируем числа по возрастанию
 
         # Создаем 3 строки с 9 клетками каждая
         self.somelist = []
@@ -17,7 +18,7 @@ class Card:
             filled_positions = random.sample(range(9), 5)
             filled_positions.sort()
 
-            # Заполняем выбранные позиции числами
+            # Заполняем выбранные позиции числами (уже отсортированными)
             for pos in filled_positions:
                 row_cells[pos] = str(numbers[numbers_index]).rjust(2)
                 numbers_index += 1
