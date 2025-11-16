@@ -27,3 +27,6 @@ class Player:
     def is_winner(self):
         """Проверить, выиграл ли игрок"""
         return self.marked_numbers == 15
+
+    def __str__(self):
+        return f"Player initialized: {self.name}"

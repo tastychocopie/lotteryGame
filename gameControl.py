@@ -142,3 +142,6 @@ class Game:
             print("\nБочонки закончились! Ничья.")
 
         print("\nИгра завершена!")
+
+    def __str__(self):
+        return "Game initialized"
