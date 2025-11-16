@@ -129,6 +129,13 @@ class TestGame:
         assert 5 in human_player.marked_numbers
         assert human_player.lost is False
 
+    def test_check_magic_method(self, game):
+        # Тестируем магический метод __str__
+        assert str(game) == "Game initialized"
+        # Или альтернативный вариант:
+        game_string = str(game)
+        assert game_string == "Game initialized"
+
     def test_check_choice_incorrect_mark(self, game, human_player):
         human_player.has_numbers = [1, 2, 3]
         current_number = 5

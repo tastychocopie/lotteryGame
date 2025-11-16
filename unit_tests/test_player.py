@@ -62,3 +62,7 @@ class TestPlayer:
         # По умолчанию marked_numbers = 0
         result = test_player.is_winner()
         assert result == False
+
+    def test_check_magic_method(self, test_player):
+        # Тестируем магический метод __str__
+        assert str(test_player) == "Player initialized: TestPlayer"
